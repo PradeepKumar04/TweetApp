@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "o3KM4b3yJjij7zfb7XUTlJx/YiSIFjrMrGkmN9fP0PEAcJlh6iS90EwE5zIhmsOOTRS7/zLu8eAB2dK8VKu2vg==",
+  "dgSpecHash": "wEIsIjM2bDdBA4+fAW9qcZOChjpNOFtQb8JmME0pubHjfljjLuLrUgwmUI+AZGslXtjuBFneEb2gY8CWjZyxCQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\com.tweetapp.infrastructure\\com.tweetapp.infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.infrastructure\\com.tweetapp.infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\935049\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\935049\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",

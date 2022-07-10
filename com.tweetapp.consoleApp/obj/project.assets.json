@@ -5304,11 +5304,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\com.tweetapp.consoleApp\\com.tweetapp.consoleApp.csproj",
+      "projectUniqueName": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.consoleApp\\com.tweetapp.consoleApp.csproj",
       "projectName": "com.tweetapp.consoleApp",
-      "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\com.tweetapp.consoleApp\\com.tweetapp.consoleApp.csproj",
+      "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.consoleApp\\com.tweetapp.consoleApp.csproj",
       "packagesPath": "C:\\Users\\935049\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\com.tweetapp.consoleApp\\obj\\",
+      "outputPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.consoleApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\935049\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5325,11 +5325,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\935049\\source\\repos\\com.tweetapp\\com.tweetapp.api\\com.tweetapp.api.csproj": {
-              "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\com.tweetapp.api\\com.tweetapp.api.csproj"
+            "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.api\\com.tweetapp.api.csproj": {
+              "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.api\\com.tweetapp.api.csproj"
             },
-            "C:\\Users\\935049\\source\\repos\\com.tweetapp\\com.tweetapp.domain\\com.tweetapp.domain.csproj": {
-              "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\com.tweetapp.domain\\com.tweetapp.domain.csproj"
+            "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj": {
+              "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj"
             }
           }
         }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\935049\\source\\repos\\com.tweetapp\\com.tweetapp.application\\com.tweetapp.application.csproj": {}
+    "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.application\\com.tweetapp.application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\935049\\source\\repos\\com.tweetapp\\com.tweetapp.application\\com.tweetapp.application.csproj": {
+    "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.application\\com.tweetapp.application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\com.tweetapp.application\\com.tweetapp.application.csproj",
+        "projectUniqueName": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.application\\com.tweetapp.application.csproj",
         "projectName": "com.tweetapp.application",
-        "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\com.tweetapp.application\\com.tweetapp.application.csproj",
+        "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.application\\com.tweetapp.application.csproj",
         "packagesPath": "C:\\Users\\935049\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\com.tweetapp.application\\obj\\",
+        "outputPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\935049\\AppData\\Roaming\\NuGet\\NuGet.Config",

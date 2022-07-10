@@ -5728,11 +5728,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\com.tweetapp.domain\\com.tweetapp.domain.csproj",
+      "projectUniqueName": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj",
       "projectName": "com.tweetapp.domain",
-      "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\com.tweetapp.domain\\com.tweetapp.domain.csproj",
+      "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj",
       "packagesPath": "C:\\Users\\935049\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\com.tweetapp.domain\\obj\\",
+      "outputPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\935049\\AppData\\Roaming\\NuGet\\NuGet.Config",
