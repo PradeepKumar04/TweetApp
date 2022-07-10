@@ -22,3 +22,4 @@ com.tweetapp.domain/obj/project.nuget.cache
 com.tweetapp.infrastructure/obj/Debug/netcoreapp3.1/com.tweetapp.infrastructure.assets.cache
 com.tweetapp.infrastructure/obj/Debug/netcoreapp3.1/com.tweetapp.infrastructure.GeneratedMSBuildEditorConfig.editorconfig
 com.tweetapp.infrastructure/obj/project.nuget.cache
+.vs/com.tweetapp/v16/.suo
