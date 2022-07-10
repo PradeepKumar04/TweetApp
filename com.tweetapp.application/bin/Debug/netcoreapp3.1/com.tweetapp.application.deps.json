@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "com.tweetapp.application/1.0.0": {
+        "runtime": {
+          "com.tweetapp.application.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "com.tweetapp.application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\com.tweetapp.api\com.tweetapp.api.csproj" />
+    <ProjectReference Include="..\com.tweetapp.domain\com.tweetapp.domain.csproj" />
+  </ItemGroup>
+
+</Project>

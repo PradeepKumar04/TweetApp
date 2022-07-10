@@ -1,0 +1,9 @@
+C:\Users\935049\source\repos\com.tweetapp\com.tweetapp.infrastructure\bin\Debug\netcoreapp3.1\com.tweetapp.infrastructure.deps.json
+C:\Users\935049\source\repos\com.tweetapp\com.tweetapp.infrastructure\bin\Debug\netcoreapp3.1\com.tweetapp.infrastructure.dll
+C:\Users\935049\source\repos\com.tweetapp\com.tweetapp.infrastructure\bin\Debug\netcoreapp3.1\com.tweetapp.infrastructure.pdb
+C:\Users\935049\source\repos\com.tweetapp\com.tweetapp.infrastructure\obj\Debug\netcoreapp3.1\com.tweetapp.infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\935049\source\repos\com.tweetapp\com.tweetapp.infrastructure\obj\Debug\netcoreapp3.1\com.tweetapp.infrastructure.AssemblyInfoInputs.cache
+C:\Users\935049\source\repos\com.tweetapp\com.tweetapp.infrastructure\obj\Debug\netcoreapp3.1\com.tweetapp.infrastructure.AssemblyInfo.cs
+C:\Users\935049\source\repos\com.tweetapp\com.tweetapp.infrastructure\obj\Debug\netcoreapp3.1\com.tweetapp.infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\935049\source\repos\com.tweetapp\com.tweetapp.infrastructure\obj\Debug\netcoreapp3.1\com.tweetapp.infrastructure.dll
+C:\Users\935049\source\repos\com.tweetapp\com.tweetapp.infrastructure\obj\Debug\netcoreapp3.1\com.tweetapp.infrastructure.pdb
