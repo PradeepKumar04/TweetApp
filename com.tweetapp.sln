@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.tweetapp.api", "com.tweetapp.api\com.tweetapp.api.csproj", "{79CD9847-9E80-491B-9FBF-E3032325F1FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "com.tweetapp.api", "com.tweetapp.api\com.tweetapp.api.csproj", "{79CD9847-9E80-491B-9FBF-E3032325F1FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.tweetapp.application", "com.tweetapp.application\com.tweetapp.application.csproj", "{9C2BC28D-46FF-4DA6-8A20-7F2DE76E3999}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "com.tweetapp.application", "com.tweetapp.application\com.tweetapp.application.csproj", "{9C2BC28D-46FF-4DA6-8A20-7F2DE76E3999}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.tweetapp.domain", "com.tweetapp.domain\com.tweetapp.domain.csproj", "{F313D90F-C1A6-4DF7-8D09-73028135B265}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "com.tweetapp.domain", "com.tweetapp.domain\com.tweetapp.domain.csproj", "{F313D90F-C1A6-4DF7-8D09-73028135B265}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.tweetapp.infrastructure", "com.tweetapp.infrastructure\com.tweetapp.infrastructure.csproj", "{A4EC18B5-67CD-4754-978E-246CCCA786E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "com.tweetapp.infrastructure", "com.tweetapp.infrastructure\com.tweetapp.infrastructure.csproj", "{A4EC18B5-67CD-4754-978E-246CCCA786E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.tweetapp.consoleApp", "com.tweetapp.consoleApp\com.tweetapp.consoleApp.csproj", "{740394C6-2A41-4192-8624-F73F74A87AAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "com.tweetapp.consoleApp", "com.tweetapp.consoleApp\com.tweetapp.consoleApp.csproj", "{740394C6-2A41-4192-8624-F73F74A87AAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.tweet.application.Test", "com.tweet.application.Test\com.tweet.application.Test.csproj", "{373AFB5C-3B58-41B3-BB0D-CCB81E1364DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{740394C6-2A41-4192-8624-F73F74A87AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{740394C6-2A41-4192-8624-F73F74A87AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{740394C6-2A41-4192-8624-F73F74A87AAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{373AFB5C-3B58-41B3-BB0D-CCB81E1364DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{373AFB5C-3B58-41B3-BB0D-CCB81E1364DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{373AFB5C-3B58-41B3-BB0D-CCB81E1364DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{373AFB5C-3B58-41B3-BB0D-CCB81E1364DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

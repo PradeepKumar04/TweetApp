@@ -14,8 +14,6 @@ namespace com.tweetapp.consoleApp
     {
         static async Task Main(string[] args)
         {
-            
-            await Task.Delay(TimeSpan.FromSeconds(30));
             Console.WriteLine("Hello World!");
             GetWeatherData weatherData = new GetWeatherData();
             var data = await weatherData.GetData();

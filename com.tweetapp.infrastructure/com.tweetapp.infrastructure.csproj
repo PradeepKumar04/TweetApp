@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataContext\" />
+    <ProjectReference Include="..\com.tweetapp.domain\com.tweetapp.domain.csproj" />
   </ItemGroup>
 
 </Project>
