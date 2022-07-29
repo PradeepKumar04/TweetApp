@@ -1,6 +1,9 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace com.tweetapp.domain.Models
 {
@@ -12,8 +15,11 @@ namespace com.tweetapp.domain.Models
     }
     public class User
     {
-        public int Id { get; set; }
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get; set; }
         public string Email { get; set; }
+        public string UserName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Gender Gender { get; set; }
@@ -21,6 +27,6 @@ namespace com.tweetapp.domain.Models
         public string Password { get; set; }
         public bool IsActive { get; set; }
         public DateTime? LastSeen { get; set; }
-        public ICollection<Tweet> Tweets { get; set; }
+        public string PhoneNumber { get; set; }
     }
 }

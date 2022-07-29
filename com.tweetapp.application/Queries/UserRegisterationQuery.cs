@@ -1,4 +1,5 @@
-﻿using com.tweetapp.application.Response;
+﻿using AutoMapper;
+using com.tweetapp.application.Response;
 using com.tweetapp.domain.DAOEntities;
 using com.tweetapp.domain.Models;
 using com.tweetapp.infrastructure.Repositories;
@@ -23,22 +24,25 @@ namespace com.tweetapp.application.Queries
         Task<ApiResponse<string>> ResetPassword(string email, string password);
         Task<ApiResponse<string>> Logout(string email);
         Task<ApiResponse<IEnumerable<UserDAO>>> GetAllUsers();
+        Task<ApiResponse<IEnumerable<UserDAO>>> GetSearchedUser(string username);
 
     }
     public class UserRegisterationQuery : IUserRegisterationQuery
     {
         protected readonly IUserRepository  _userRepository;
+        protected readonly IMapper _mapper;
         public  IConfiguration Configuration { get; }
 
-        public UserRegisterationQuery(IUserRepository userRepository, IConfiguration configuration)
+        public UserRegisterationQuery(IUserRepository userRepository, IConfiguration configuration, IMapper mapper)
         {
             _userRepository = userRepository;
             Configuration = configuration;
+            _mapper = mapper;
         }
 
         public async Task<ApiResponse<string>> UserRegistartion(UserRegisterDAO user)
         {
-            if(user.Email==null || user.FirstName=="" || user.Gender.Equals(null)|| user.Password == "")
+            if (user.Email==null || user.FirstName=="" || user.Gender.Equals(null)|| user.Password == "")
             {
                 return new ApiResponse<string>()
                 {
@@ -50,18 +54,21 @@ namespace com.tweetapp.application.Queries
             }
             else
             {
-                var userDetails = await _userRepository.GetUserByEmail(user.Email);
-                if (userDetails == null)
+                var userDetails = await _userRepository.CheckEmailAndUserNameExists(user.UserName,user.Email);
+                if (userDetails)
                 {
+                    var date = user.DateOfBirth.ToString().Split('-');
                     user.Password = GenerateHashPassword(user.Password, Configuration["JWT:Secret"]);
                     User user1 = new User()
                     {
                         FirstName = user.FirstName,
-                        DateOfBirth = user.DateOfBirth,
+                        DateOfBirth = new DateTime(int.Parse(date[2]),int.Parse(date[1]),int.Parse(date[0])),
                         Email = user.Email,
                         Gender = user.Gender,
                         IsActive = true,
                         LastName = user.LastName,
+                        UserName = user.UserName,
+                        PhoneNumber = user.PhoneNumber,
                         Password = user.Password
                     };
                    var result = await _userRepository.RegisterUser(user1);
@@ -73,7 +80,7 @@ namespace com.tweetapp.application.Queries
                             Message = "User Registeration successful",
                             StatusCode = 201,
                             Success = true,
-                            Data = GenerateToken(user1.Email, userDetail.Id)
+                            Data = GenerateToken(user1.Email, userDetail.Id,user1.UserName)
                         };
                     }
                         return new ApiResponse<string>()
@@ -88,7 +95,7 @@ namespace com.tweetapp.application.Queries
                     {
                         return new ApiResponse<string>()
                         {
-                            Message = "Email Already Exists",
+                            Message = "User Name or Email Already Exists",
                             StatusCode = 300,
                             Success = false,
                             Data = null
@@ -101,7 +108,7 @@ namespace com.tweetapp.application.Queries
 
         public async Task<ApiResponse<string>> UserLogin(UserLoginDAO user)
         {
-            if(user==null || user.Email==null || user.Password == null)
+            if(user==null || user.UserName==null || user.Password == null)
             {
                 return new ApiResponse<string>()
                 {
@@ -113,12 +120,12 @@ namespace com.tweetapp.application.Queries
             }
             else
             {
-                var userDetails = await _userRepository.GetUserByEmail(user.Email);
+                var userDetails = await _userRepository.GetUserByUserName(user.UserName);
                 if (userDetails == null)
                 {
                     return new ApiResponse<string>()
                     {
-                        Message = "Email doesn't exists",
+                        Message = "User Name doesn't exists",
                         StatusCode = 300,
                         Success = false,
                         Data = null
@@ -131,7 +138,7 @@ namespace com.tweetapp.application.Queries
                     {
                         return new ApiResponse<string>()
                         {
-                            Message = "Email or Password doesn't match",
+                            Message = "User Name or Password doesn't match",
                             StatusCode = 300,
                             Success = false,
                             Data = null
@@ -139,7 +146,7 @@ namespace com.tweetapp.application.Queries
                     }
                     else
                     {
-                        var token = GenerateToken(user.Email, userDetails.Id);
+                        var token = GenerateToken(userDetails.Email, userDetails.Id,user.UserName);
                         return new ApiResponse<string>()
                         {
                             Message = "User Login successful",
@@ -179,15 +186,11 @@ namespace com.tweetapp.application.Queries
                 }
                 else
                 {
-                    Regex regex = new Regex(@"(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$");
-
+                    Regex regex = new Regex(@"^([0]?[1-9]|[1|2][0-9]|[3][0|1])[-]([0]?[1-9]|[1][0-2])[-]([0-9]{4}|[0-9]{2})$");
+                    Match match = regex.Match(forgotPassword.DateOfBirth);
+                    DateTime dt = DateTime.ParseExact(forgotPassword.DateOfBirth, "dd-MM-yyyy", CultureInfo.CurrentCulture);
                     //Verify whether date entered in dd/MM/yyyy format.
-                    bool isValid = regex.IsMatch(forgotPassword.DateOfBirth.Trim());
-
-                    //Verify whether entered date is Valid date.
-                    DateTime dt;
-                    isValid = DateTime.TryParseExact(forgotPassword.DateOfBirth, "dd/MM/yyyy", new CultureInfo("en-GB"), DateTimeStyles.None, out dt);
-                    if (isValid && dt.Date == user.DateOfBirth.Value.Date)
+                    if (match.Success && dt.Date == user.DateOfBirth.Value.Date)
                     {
                         user.Password = GenerateHashPassword(forgotPassword.Password, Configuration["JWT:Secret"]);
                         var isForgotPasswordChanged = await _userRepository.ForgotPassword(user);
@@ -210,7 +213,7 @@ namespace com.tweetapp.application.Queries
                             Data = null
                         };
                     }
-                    else if (!isValid)
+                    else if (!match.Success)
                     {
                         return new ApiResponse<string>()
                         {
@@ -296,10 +299,12 @@ namespace com.tweetapp.application.Queries
             {
                 UserDAO u = new UserDAO();
                 u.Email = item.Email;
+                u.UserName = item.UserName;
                 u.FirstName = item.FirstName;
                 u.Gender = Enum.GetName(typeof(Gender), item.Gender);
                 u.LastName = item.LastName;
-                u.LastSeen = u.LastSeen;
+                u.PhoneNumber = item.PhoneNumber;
+                u.LastSeen = item.LastSeen;
                 userDAOs.Add(u);
             }
             return new ApiResponse<IEnumerable<UserDAO>> ()
@@ -385,7 +390,7 @@ namespace com.tweetapp.application.Queries
             return Convert.ToBase64String(data);
         }
 
-        private  string GenerateToken(string email, int id)
+        private  string GenerateToken(string email, string id,string userName)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
@@ -397,13 +402,38 @@ namespace com.tweetapp.application.Queries
                 claims: new[]
                 {
                      new Claim(ClaimTypes.Email, email),
-                     new Claim(ClaimTypes.NameIdentifier,id+"")
+                     new Claim(ClaimTypes.NameIdentifier,id+""),
+                     new Claim(ClaimTypes.Name,userName)
                 },
                 expires: DateTime.UtcNow.AddMinutes(120));
             var handler = new JwtSecurityTokenHandler();
             return handler.WriteToken(secToken);
         }
 
-        
+        public async Task<ApiResponse<IEnumerable<UserDAO>>> GetSearchedUser(string username)
+        {
+            if (username == null)
+            {
+                return new ApiResponse<IEnumerable<UserDAO>> ()
+                {
+                    Message = "No Users Found",
+                    StatusCode = 200,
+                    Success = true,
+                    Data = null
+                };
+            }
+            else
+            {
+                var results =await _userRepository.GetSearchedUser(username);
+                var userTweet = _mapper.Map<IEnumerable<UserDAO>>(results);
+                return new ApiResponse<IEnumerable<UserDAO>>()
+                {
+                    Message = "Users searched successfully.",
+                    StatusCode = 200,
+                    Success = true,
+                    Data = userTweet
+                };
+            }
+        }
     }
 }

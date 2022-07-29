@@ -22,3 +22,17 @@ C:\Users\935049\source\repos\com.tweetapp\TweetApp\com.tweetapp.application\bin\
 C:\Users\935049\source\repos\com.tweetapp\TweetApp\com.tweetapp.application\bin\Debug\netcoreapp3.1\com.tweetapp.infrastructure.pdb
 C:\Users\935049\source\repos\com.tweetapp\TweetApp\com.tweetapp.application\bin\Debug\netcoreapp3.1\com.tweetapp.domain.pdb
 C:\Users\935049\source\repos\com.tweetapp\TweetApp\com.tweetapp.application\obj\Debug\netcoreapp3.1\com.tweetapp.application.csproj.CopyComplete
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.application\bin\Debug\netcoreapp3.1\com.tweetapp.application.deps.json
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.application\bin\Debug\netcoreapp3.1\com.tweetapp.application.dll
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.application\bin\Debug\netcoreapp3.1\com.tweetapp.application.pdb
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.application\bin\Debug\netcoreapp3.1\com.tweetapp.domain.dll
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.application\bin\Debug\netcoreapp3.1\com.tweetapp.infrastructure.dll
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.application\bin\Debug\netcoreapp3.1\com.tweetapp.infrastructure.pdb
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.application\bin\Debug\netcoreapp3.1\com.tweetapp.domain.pdb
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.application\obj\Debug\netcoreapp3.1\com.tweetapp.application.csproj.AssemblyReference.cache
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.application\obj\Debug\netcoreapp3.1\com.tweetapp.application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.application\obj\Debug\netcoreapp3.1\com.tweetapp.application.AssemblyInfoInputs.cache
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.application\obj\Debug\netcoreapp3.1\com.tweetapp.application.AssemblyInfo.cs
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.application\obj\Debug\netcoreapp3.1\com.tweetapp.application.csproj.CoreCompileInputs.cache
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.application\obj\Debug\netcoreapp3.1\com.tweetapp.application.dll
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.application\obj\Debug\netcoreapp3.1\com.tweetapp.application.pdb

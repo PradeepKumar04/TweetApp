@@ -12,6 +12,8 @@ namespace com.tweetapp.application.Mapper
         public DAOMapping()
         {
             CreateMap<TweetDAO,Tweet>().ReverseMap();
+            CreateMap<ReplyTweetDAO, ReplyTweet>().ReverseMap();
+            CreateMap<UserDAO, User>().ReverseMap();
         }
     }
 }

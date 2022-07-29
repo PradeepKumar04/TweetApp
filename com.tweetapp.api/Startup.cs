@@ -1,4 +1,5 @@
 using com.tweetapp.application.Queries;
+using com.tweetapp.domain.Models;
 using com.tweetapp.infrastructure.DataContext;
 using com.tweetapp.infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -13,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +41,15 @@ namespace com.tweetapp.api
             services.AddScoped<ITweetRepository, TweetRepository>();
             services.AddScoped<IUserRegisterationQuery, UserRegisterationQuery>();
             services.AddScoped<ITweetQuery, TweetQuery>();
+            services.AddSingleton<IMongoClient,MongoClient>(sp=>new MongoClient(Configuration["TweetAppDbSettings:ConnectionString"]));
+            services.AddScoped<IDbClient, DbClient>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.Configure<TweetAppDbSettings>(
+                Configuration.GetSection(nameof(TweetAppDbSettings)));
+
+            services.AddSingleton<ITweetAppDbSettings>(sp =>
+            sp.GetRequiredService<IOptions<TweetAppDbSettings>>().Value);
 
             // Adding Authentication  
             services.AddAuthentication(options =>

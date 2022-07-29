@@ -77,5 +77,13 @@ namespace com.tweetapp.api.Controllers
             return await _userRegisteration.GetAllUsers();   
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [HttpGet]
+        [Route("search/{username}")]
+        public async Task<ApiResponse<IEnumerable<UserDAO>>> GetSearchedUserName([FromRoute]string userName)
+        {
+            return await _userRegisteration.GetSearchedUser(userName);
+        }
+
     }
 }

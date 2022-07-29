@@ -30,18 +30,17 @@ namespace com.tweetapp.api.Controllers
         [Route("PostTweet")]
         public async Task<ApiResponse<string>> PostTweet([FromBody] TweetDAO tweet)
         {
-            tweet.CreatedDate = DateTime.Now;
+            tweet.UploadDate = DateTime.Now;
             var userId = GetIdFromToken.GetId(Request.Headers[HeaderNames.Authorization].ToString().Split(" ")[1]);
             
             return await _tweetQuery.PostTweet(tweet,userId);
         }
 
         [HttpGet]
-        [Route("MyTweets")]
-        public async Task<ApiResponse<IEnumerable<TweetDAO>>> GetAllMyTweets()
+        [Route("tweets/{username}")]
+        public async Task<ApiResponse<IEnumerable<TweetDAO>>> GetTweetsByUserName([FromRoute] string username)
         {
-            var email = GetEmailFromToken.GetEmail(Request.Headers[HeaderNames.Authorization].ToString().Split(" ")[1]);
-            return await _tweetQuery.GetAllMyTweets(email);
+            return await _tweetQuery.GetAllTweetsByUserName(username);
         }
 
         [HttpGet]
@@ -50,5 +49,40 @@ namespace com.tweetapp.api.Controllers
         {
             return await _tweetQuery.GetAllTweets();
         }
+
+        [HttpPut]
+        [Route("{username}/like/{id}")]
+        public async Task<ApiResponse<string>> LikeTweet([FromRoute]string username, [FromRoute] string id)
+        {
+            var userName = GetUserNameFromToken.GetNameFromToken(Request.Headers[HeaderNames.Authorization].ToString().Split(" ")[1]);
+            return await _tweetQuery.LikeTweet(userName, id);
+        }
+
+        [HttpPost]
+        [Route("{username}/reply/{id}")]
+        public async Task<ApiResponse<string>> ReplyTweet([FromRoute] string username, [FromRoute] string id, TweetReplyDAO reply)
+        {
+            var userName = GetUserNameFromToken.GetNameFromToken(Request.Headers[HeaderNames.Authorization].ToString().Split(" ")[1]);
+            return await  _tweetQuery.ReplyTweet(userName, id, reply.Reply);
+        }
+
+        [HttpPut]
+        [Route("{username}/update/{id}")]
+        public async Task<ApiResponse<bool>> UpdateTweet([FromRoute] string username, [FromRoute] string id,[FromBody] TweetDAO tweet)
+        {
+
+            var userName = GetUserNameFromToken.GetNameFromToken(Request.Headers[HeaderNames.Authorization].ToString().Split(" ")[1]);
+            return await _tweetQuery.UpdateTweet(id, userName,tweet);
+        }
+
+        [HttpDelete]
+        [Route("{username}/delete/{id}")]
+        public async Task<ApiResponse<bool>> DeleteTweet([FromRoute] string username,[FromRoute] string id)
+        {
+            var userName = GetUserNameFromToken.GetNameFromToken(Request.Headers[HeaderNames.Authorization].ToString().Split(" ")[1]);
+
+            return await _tweetQuery.DeleteTweet(id);
+        }
+        
     }
 }

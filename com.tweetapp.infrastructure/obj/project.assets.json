@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "DnsClient/1.6.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Registry": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/DnsClient.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/DnsClient.dll": {}
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
         "type": "package",
         "compile": {
@@ -363,7 +375,7 @@
           "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll": {}
         }
       },
-      "Microsoft.NETCore.Platforms/2.0.0": {
+      "Microsoft.NETCore.Platforms/5.0.0": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -381,25 +393,136 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.Win32.Registry/4.5.0": {
+      "Microsoft.Win32.Registry/5.0.0": {
         "type": "package",
         "dependencies": {
-          "System.Security.AccessControl": "4.5.0",
-          "System.Security.Principal.Windows": "4.5.0"
+          "System.Security.AccessControl": "5.0.0",
+          "System.Security.Principal.Windows": "5.0.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {}
+          "ref/netstandard2.0/Microsoft.Win32.Registry.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Win32.Registry.dll": {}
         },
         "runtimeTargets": {
-          "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
-            "assetType": "runtime",
-            "rid": "unix"
-          },
           "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
             "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "MongoDB.Bson/2.17.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/MongoDB.Bson.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/MongoDB.Bson.dll": {}
+        }
+      },
+      "MongoDB.Driver/2.17.0": {
+        "type": "package",
+        "dependencies": {
+          "MongoDB.Bson": "2.17.0",
+          "MongoDB.Driver.Core": "2.17.0",
+          "MongoDB.Libmongocrypt": "1.5.4"
+        },
+        "compile": {
+          "lib/netstandard2.1/MongoDB.Driver.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/MongoDB.Driver.dll": {}
+        }
+      },
+      "MongoDB.Driver.Core/2.17.0": {
+        "type": "package",
+        "dependencies": {
+          "DnsClient": "1.6.1",
+          "MongoDB.Bson": "2.17.0",
+          "MongoDB.Libmongocrypt": "1.5.4",
+          "SharpCompress": "0.30.1",
+          "System.Buffers": "4.5.1"
+        },
+        "compile": {
+          "lib/netstandard2.1/MongoDB.Driver.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/MongoDB.Driver.Core.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/any/_._": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        },
+        "build": {
+          "build/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux/native/libsnappy64.so": {
+            "assetType": "native",
+            "rid": "linux"
+          },
+          "runtimes/linux/native/libzstd.so": {
+            "assetType": "native",
+            "rid": "linux"
+          },
+          "runtimes/osx/native/libsnappy64.dylib": {
+            "assetType": "native",
+            "rid": "osx"
+          },
+          "runtimes/osx/native/libzstd.dylib": {
+            "assetType": "native",
+            "rid": "osx"
+          },
+          "runtimes/win/native/libzstd.dll": {
+            "assetType": "native",
+            "rid": "win"
+          },
+          "runtimes/win/native/snappy32.dll": {
+            "assetType": "native",
+            "rid": "win"
+          },
+          "runtimes/win/native/snappy64.dll": {
+            "assetType": "native",
+            "rid": "win"
+          }
+        }
+      },
+      "MongoDB.Libmongocrypt/1.5.4": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/MongoDB.Libmongocrypt.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/MongoDB.Libmongocrypt.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/any/_._": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        },
+        "build": {
+          "build/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux/native/libmongocrypt.so": {
+            "assetType": "native",
+            "rid": "linux"
+          },
+          "runtimes/osx/native/libmongocrypt.dylib": {
+            "assetType": "native",
+            "rid": "osx"
+          },
+          "runtimes/win/native/mongocrypt.dll": {
+            "assetType": "native",
             "rid": "win"
           }
         }
@@ -487,6 +610,24 @@
             "assetType": "native",
             "rid": "win-x86"
           }
+        }
+      },
+      "SharpCompress/0.30.1": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/SharpCompress.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/SharpCompress.dll": {}
+        }
+      },
+      "System.Buffers/4.5.1": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
         }
       },
       "System.Collections/4.3.0": {
@@ -1076,10 +1217,10 @@
           }
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.0": {
+      "System.Runtime.CompilerServices.Unsafe/5.0.0": {
         "type": "package",
         "compile": {
-          "ref/netstandard2.0/_._": {}
+          "ref/netstandard2.1/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
@@ -1179,14 +1320,14 @@
           "lib/netstandard1.3/System.Runtime.Serialization.Primitives.dll": {}
         }
       },
-      "System.Security.AccessControl/4.5.0": {
+      "System.Security.AccessControl/5.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "2.0.0",
-          "System.Security.Principal.Windows": "4.5.0"
+          "Microsoft.NETCore.Platforms": "5.0.0",
+          "System.Security.Principal.Windows": "5.0.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {}
+          "ref/netstandard2.0/System.Security.AccessControl.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Security.AccessControl.dll": {}
@@ -1258,23 +1399,20 @@
           "lib/netstandard2.0/System.Security.Permissions.dll": {}
         }
       },
-      "System.Security.Principal.Windows/4.5.0": {
+      "System.Security.Principal.Windows/5.0.0": {
         "type": "package",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "2.0.0"
-        },
         "compile": {
-          "ref/netstandard2.0/_._": {}
+          "ref/netcoreapp3.0/System.Security.Principal.Windows.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Security.Principal.Windows.dll": {}
         },
         "runtimeTargets": {
-          "runtimes/unix/lib/netcoreapp2.0/System.Security.Principal.Windows.dll": {
+          "runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.dll": {
             "assetType": "runtime",
             "rid": "unix"
           },
-          "runtimes/win/lib/netcoreapp2.0/System.Security.Principal.Windows.dll": {
+          "runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -1501,7 +1639,9 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "3.1.26",
-          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.26"
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.26",
+          "MongoDB.Bson": "2.17.0",
+          "MongoDB.Driver": "2.17.0"
         },
         "compile": {
           "bin/placeholder/com.tweetapp.domain.dll": {}
@@ -1513,6 +1653,30 @@
     }
   },
   "libraries": {
+    "DnsClient/1.6.1": {
+      "sha512": "4H/f2uYJOZ+YObZjpY9ABrKZI+JNw3uizp6oMzTXwDw6F+2qIPhpRl/1t68O/6e98+vqNiYGu+lswmwdYUy3gg==",
+      "type": "package",
+      "path": "dnsclient/1.6.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dnsclient.1.6.1.nupkg.sha512",
+        "dnsclient.nuspec",
+        "icon.png",
+        "lib/net45/DnsClient.dll",
+        "lib/net45/DnsClient.xml",
+        "lib/net471/DnsClient.dll",
+        "lib/net471/DnsClient.xml",
+        "lib/net5.0/DnsClient.dll",
+        "lib/net5.0/DnsClient.xml",
+        "lib/netstandard1.3/DnsClient.dll",
+        "lib/netstandard1.3/DnsClient.xml",
+        "lib/netstandard2.0/DnsClient.dll",
+        "lib/netstandard2.0/DnsClient.xml",
+        "lib/netstandard2.1/DnsClient.dll",
+        "lib/netstandard2.1/DnsClient.xml"
+      ]
+    },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "sha512": "yuvf07qFWFqtK3P/MRkEKLhn5r2UbSpVueRziSqj0yJQIKFwG1pq9mOayK3zE5qZCTs0CbrwL9M6R8VwqyGy2w==",
       "type": "package",
@@ -2116,17 +2280,18 @@
         "microsoft.identitymodel.tokens.nuspec"
       ]
     },
-    "Microsoft.NETCore.Platforms/2.0.0": {
-      "sha512": "VdLJOCXhZaEMY7Hm2GKiULmn7IEPFE4XC5LPSfBVCUIA8YLZVh846gtfBJalsPQF2PlzdD7ecX7DZEulJ402ZQ==",
+    "Microsoft.NETCore.Platforms/5.0.0": {
+      "sha512": "VyPlqzH2wavqquTcYpkIIAQ6WdenuKoFN0BdYBbCWsclXacSOHNQn66Gt4z5NBqEYW0FAPm5rlvki9ZiCij5xQ==",
       "type": "package",
-      "path": "microsoft.netcore.platforms/2.0.0",
+      "path": "microsoft.netcore.platforms/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netstandard1.0/_._",
-        "microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+        "microsoft.netcore.platforms.5.0.0.nupkg.sha512",
         "microsoft.netcore.platforms.nuspec",
         "runtime.json",
         "useSharedDesignerContext.txt",
@@ -2148,20 +2313,23 @@
         "runtime.json"
       ]
     },
-    "Microsoft.Win32.Registry/4.5.0": {
-      "sha512": "+FWlwd//+Tt56316p00hVePBCouXyEzT86Jb3+AuRotTND0IYn0OO3obs1gnQEs/txEnt+rF2JBGLItTG+Be6A==",
+    "Microsoft.Win32.Registry/5.0.0": {
+      "sha512": "dDoKi0PnDz31yAyETfRntsLArTlVAVzUzCIvvEDsDsucrl33Dl8pIJG06ePTJTI3tGpeyHS9Cq7Foc/s4EeKcg==",
       "type": "package",
-      "path": "microsoft.win32.registry/4.5.0",
+      "path": "microsoft.win32.registry/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net46/Microsoft.Win32.Registry.dll",
         "lib/net461/Microsoft.Win32.Registry.dll",
+        "lib/net461/Microsoft.Win32.Registry.xml",
         "lib/netstandard1.3/Microsoft.Win32.Registry.dll",
         "lib/netstandard2.0/Microsoft.Win32.Registry.dll",
-        "microsoft.win32.registry.4.5.0.nupkg.sha512",
+        "lib/netstandard2.0/Microsoft.Win32.Registry.xml",
+        "microsoft.win32.registry.5.0.0.nupkg.sha512",
         "microsoft.win32.registry.nuspec",
         "ref/net46/Microsoft.Win32.Registry.dll",
         "ref/net461/Microsoft.Win32.Registry.dll",
@@ -2179,13 +2347,139 @@
         "ref/netstandard1.3/zh-hant/Microsoft.Win32.Registry.xml",
         "ref/netstandard2.0/Microsoft.Win32.Registry.dll",
         "ref/netstandard2.0/Microsoft.Win32.Registry.xml",
-        "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll",
         "runtimes/win/lib/net46/Microsoft.Win32.Registry.dll",
         "runtimes/win/lib/net461/Microsoft.Win32.Registry.dll",
+        "runtimes/win/lib/net461/Microsoft.Win32.Registry.xml",
         "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Registry.dll",
         "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll",
+        "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "MongoDB.Bson/2.17.0": {
+      "sha512": "wGUX8GMQ0DYG68u1ENAUtJTx6cmQTt6/BfMjqB+Q+aWu2ZkBZ09mA1QbBU5mcbVqulF5U72bGzxChtjYxaS9Dg==",
+      "type": "package",
+      "path": "mongodb.bson/2.17.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "lib/net472/MongoDB.Bson.dll",
+        "lib/net472/MongoDB.Bson.xml",
+        "lib/netstandard2.0/MongoDB.Bson.dll",
+        "lib/netstandard2.0/MongoDB.Bson.xml",
+        "lib/netstandard2.1/MongoDB.Bson.dll",
+        "lib/netstandard2.1/MongoDB.Bson.xml",
+        "mongodb.bson.2.17.0.nupkg.sha512",
+        "mongodb.bson.nuspec",
+        "packageIcon.png"
+      ]
+    },
+    "MongoDB.Driver/2.17.0": {
+      "sha512": "NFqjuDNrGNGEsblqoKBoOSUU8vx1UbZjKP3nVhxhGnK9p8ef0t3fyPcjxmYbO5vdFpDQw2A0Ly4dPzyRW3QEug==",
+      "type": "package",
+      "path": "mongodb.driver/2.17.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "lib/net472/MongoDB.Driver.dll",
+        "lib/net472/MongoDB.Driver.xml",
+        "lib/netstandard2.0/MongoDB.Driver.dll",
+        "lib/netstandard2.0/MongoDB.Driver.xml",
+        "lib/netstandard2.1/MongoDB.Driver.dll",
+        "lib/netstandard2.1/MongoDB.Driver.xml",
+        "mongodb.driver.2.17.0.nupkg.sha512",
+        "mongodb.driver.nuspec",
+        "packageIcon.png"
+      ]
+    },
+    "MongoDB.Driver.Core/2.17.0": {
+      "sha512": "bQLdFZNywlApJ5H5KnFXxGik3dZ/VOIUQ7YQniZd9eNmNZFEwEMr+/yoCJ8FigyzOd7iKYOLpmUWGwG2M2e2aQ==",
+      "type": "package",
+      "path": "mongodb.driver.core/2.17.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "THIRD-PARTY-NOTICES",
+        "build/MongoDB.Driver.Core.targets",
+        "content/Core/Compression/Snappy/lib/linux/libsnappy64.so",
+        "content/Core/Compression/Snappy/lib/osx/libsnappy64.dylib",
+        "content/Core/Compression/Snappy/lib/win/snappy32.dll",
+        "content/Core/Compression/Snappy/lib/win/snappy64.dll",
+        "content/Core/Compression/Zstandard/lib/linux/libzstd.so",
+        "content/Core/Compression/Zstandard/lib/osx/libzstd.dylib",
+        "content/Core/Compression/Zstandard/lib/win/libzstd.dll",
+        "contentFiles/any/net472/Core/Compression/Snappy/lib/linux/libsnappy64.so",
+        "contentFiles/any/net472/Core/Compression/Snappy/lib/osx/libsnappy64.dylib",
+        "contentFiles/any/net472/Core/Compression/Snappy/lib/win/snappy32.dll",
+        "contentFiles/any/net472/Core/Compression/Snappy/lib/win/snappy64.dll",
+        "contentFiles/any/net472/Core/Compression/Zstandard/lib/linux/libzstd.so",
+        "contentFiles/any/net472/Core/Compression/Zstandard/lib/osx/libzstd.dylib",
+        "contentFiles/any/net472/Core/Compression/Zstandard/lib/win/libzstd.dll",
+        "contentFiles/any/netstandard2.0/Core/Compression/Snappy/lib/linux/libsnappy64.so",
+        "contentFiles/any/netstandard2.0/Core/Compression/Snappy/lib/osx/libsnappy64.dylib",
+        "contentFiles/any/netstandard2.0/Core/Compression/Snappy/lib/win/snappy32.dll",
+        "contentFiles/any/netstandard2.0/Core/Compression/Snappy/lib/win/snappy64.dll",
+        "contentFiles/any/netstandard2.0/Core/Compression/Zstandard/lib/linux/libzstd.so",
+        "contentFiles/any/netstandard2.0/Core/Compression/Zstandard/lib/osx/libzstd.dylib",
+        "contentFiles/any/netstandard2.0/Core/Compression/Zstandard/lib/win/libzstd.dll",
+        "contentFiles/any/netstandard2.1/Core/Compression/Snappy/lib/linux/libsnappy64.so",
+        "contentFiles/any/netstandard2.1/Core/Compression/Snappy/lib/osx/libsnappy64.dylib",
+        "contentFiles/any/netstandard2.1/Core/Compression/Snappy/lib/win/snappy32.dll",
+        "contentFiles/any/netstandard2.1/Core/Compression/Snappy/lib/win/snappy64.dll",
+        "contentFiles/any/netstandard2.1/Core/Compression/Zstandard/lib/linux/libzstd.so",
+        "contentFiles/any/netstandard2.1/Core/Compression/Zstandard/lib/osx/libzstd.dylib",
+        "contentFiles/any/netstandard2.1/Core/Compression/Zstandard/lib/win/libzstd.dll",
+        "lib/net472/MongoDB.Driver.Core.dll",
+        "lib/net472/MongoDB.Driver.Core.xml",
+        "lib/netstandard2.0/MongoDB.Driver.Core.dll",
+        "lib/netstandard2.0/MongoDB.Driver.Core.xml",
+        "lib/netstandard2.1/MongoDB.Driver.Core.dll",
+        "lib/netstandard2.1/MongoDB.Driver.Core.xml",
+        "mongodb.driver.core.2.17.0.nupkg.sha512",
+        "mongodb.driver.core.nuspec",
+        "packageIcon.png",
+        "runtimes/linux/native/libsnappy64.so",
+        "runtimes/linux/native/libzstd.so",
+        "runtimes/osx/native/libsnappy64.dylib",
+        "runtimes/osx/native/libzstd.dylib",
+        "runtimes/win/native/libzstd.dll",
+        "runtimes/win/native/snappy32.dll",
+        "runtimes/win/native/snappy64.dll"
+      ]
+    },
+    "MongoDB.Libmongocrypt/1.5.4": {
+      "sha512": "JQrfonPIGey2n38tYmhkYOjmoHeGCwvbEru/G7zciYcx198neZerSPylIt6kTGtpGQDMhjCg0Nvt9eCBm6TWZQ==",
+      "type": "package",
+      "path": "mongodb.libmongocrypt/1.5.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "build/MongoDB.Libmongocrypt.targets",
+        "content/libmongocrypt.dylib",
+        "content/libmongocrypt.so",
+        "content/mongocrypt.dll",
+        "contentFiles/any/net472/libmongocrypt.dylib",
+        "contentFiles/any/net472/libmongocrypt.so",
+        "contentFiles/any/net472/mongocrypt.dll",
+        "contentFiles/any/netstandard2.0/libmongocrypt.dylib",
+        "contentFiles/any/netstandard2.0/libmongocrypt.so",
+        "contentFiles/any/netstandard2.0/mongocrypt.dll",
+        "contentFiles/any/netstandard2.1/libmongocrypt.dylib",
+        "contentFiles/any/netstandard2.1/libmongocrypt.so",
+        "contentFiles/any/netstandard2.1/mongocrypt.dll",
+        "lib/net472/MongoDB.Libmongocrypt.dll",
+        "lib/netstandard2.0/MongoDB.Libmongocrypt.dll",
+        "lib/netstandard2.1/MongoDB.Libmongocrypt.dll",
+        "mongodb.libmongocrypt.1.5.4.nupkg.sha512",
+        "mongodb.libmongocrypt.nuspec",
+        "runtimes/linux/native/libmongocrypt.so",
+        "runtimes/osx/native/libmongocrypt.dylib",
+        "runtimes/win/native/mongocrypt.dll"
       ]
     },
     "Newtonsoft.Json/10.0.1": {
@@ -2288,6 +2582,53 @@
         "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
         "runtime.win-x86.runtime.native.system.data.sqlclient.sni.nuspec",
         "runtimes/win-x86/native/sni.dll",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "SharpCompress/0.30.1": {
+      "sha512": "XqD4TpfyYGa7QTPzaGlMVbcecKnXy4YmYLDWrU+JIj7IuRNl7DH2END+Ll7ekWIY8o3dAMWLFDE1xdhfIWD1nw==",
+      "type": "package",
+      "path": "sharpcompress/0.30.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/SharpCompress.dll",
+        "lib/net5.0/SharpCompress.dll",
+        "lib/netcoreapp3.1/SharpCompress.dll",
+        "lib/netstandard2.0/SharpCompress.dll",
+        "lib/netstandard2.1/SharpCompress.dll",
+        "sharpcompress.0.30.1.nupkg.sha512",
+        "sharpcompress.nuspec"
+      ]
+    },
+    "System.Buffers/4.5.1": {
+      "sha512": "Rw7ijyl1qqRS0YQD/WycNst8hUUMgrMH4FCn1nNm27M4VxchZ1js3fVjQaANHO5f3sN4isvP4a+Met9Y4YomAg==",
+      "type": "package",
+      "path": "system.buffers/4.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Buffers.dll",
+        "lib/net461/System.Buffers.xml",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.1/System.Buffers.dll",
+        "lib/netstandard1.1/System.Buffers.xml",
+        "lib/netstandard2.0/System.Buffers.dll",
+        "lib/netstandard2.0/System.Buffers.xml",
+        "lib/uap10.0.16299/_._",
+        "ref/net45/System.Buffers.dll",
+        "ref/net45/System.Buffers.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.1/System.Buffers.dll",
+        "ref/netstandard1.1/System.Buffers.xml",
+        "ref/netstandard2.0/System.Buffers.dll",
+        "ref/netstandard2.0/System.Buffers.xml",
+        "ref/uap10.0.16299/_._",
+        "system.buffers.4.5.1.nupkg.sha512",
+        "system.buffers.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
@@ -4314,28 +4655,33 @@
         "version.txt"
       ]
     },
-    "System.Runtime.CompilerServices.Unsafe/4.5.0": {
-      "sha512": "YrzNWduCDHhUaSRBxHxL11UkM2fD6y8hITHis4/LbQZ6vj3vdRjoH3IoPWWC9uDXK2wHIqn+b5gv1Np/VKyM1g==",
+    "System.Runtime.CompilerServices.Unsafe/5.0.0": {
+      "sha512": "ZD9TMpsmYJLrxbbmdvhwt9YEgG5WntEnZ/d1eH8JBX9LBp+Ju8BSBhUGbZMNVHHomWo2KVImJhTDl2hIgw/6MA==",
       "type": "package",
-      "path": "system.runtime.compilerservices.unsafe/4.5.0",
+      "path": "system.runtime.compilerservices.unsafe/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "lib/net45/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net45/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/uap10.0.16300/_._",
+        "ref/net461/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/net461/System.Runtime.CompilerServices.Unsafe.xml",
         "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
         "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
         "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "ref/uap10.0.16300/_._",
-        "system.runtime.compilerservices.unsafe.4.5.0.nupkg.sha512",
+        "ref/netstandard2.1/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/netstandard2.1/System.Runtime.CompilerServices.Unsafe.xml",
+        "system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
         "system.runtime.compilerservices.unsafe.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -4771,19 +5117,22 @@
         "system.runtime.serialization.primitives.nuspec"
       ]
     },
-    "System.Security.AccessControl/4.5.0": {
-      "sha512": "vW8Eoq0TMyz5vAG/6ce483x/CP83fgm4SJe5P8Tb1tZaobcvPrbMEL7rhH1DRdrYbbb6F0vq3OlzmK0Pkwks5A==",
+    "System.Security.AccessControl/5.0.0": {
+      "sha512": "dagJ1mHZO3Ani8GH0PHpPEe/oYO+rVdbQjvjJkBRNQkX4t0r1iaeGn8+/ybkSLEan3/slM0t59SVdHzuHf2jmw==",
       "type": "package",
-      "path": "system.security.accesscontrol/4.5.0",
+      "path": "system.security.accesscontrol/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net46/System.Security.AccessControl.dll",
         "lib/net461/System.Security.AccessControl.dll",
+        "lib/net461/System.Security.AccessControl.xml",
         "lib/netstandard1.3/System.Security.AccessControl.dll",
         "lib/netstandard2.0/System.Security.AccessControl.dll",
+        "lib/netstandard2.0/System.Security.AccessControl.xml",
         "lib/uap10.0.16299/_._",
         "ref/net46/System.Security.AccessControl.dll",
         "ref/net461/System.Security.AccessControl.dll",
@@ -4804,10 +5153,12 @@
         "ref/uap10.0.16299/_._",
         "runtimes/win/lib/net46/System.Security.AccessControl.dll",
         "runtimes/win/lib/net461/System.Security.AccessControl.dll",
+        "runtimes/win/lib/net461/System.Security.AccessControl.xml",
         "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll",
+        "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.xml",
         "runtimes/win/lib/netstandard1.3/System.Security.AccessControl.dll",
         "runtimes/win/lib/uap10.0.16299/_._",
-        "system.security.accesscontrol.4.5.0.nupkg.sha512",
+        "system.security.accesscontrol.5.0.0.nupkg.sha512",
         "system.security.accesscontrol.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -4967,23 +5318,28 @@
         "version.txt"
       ]
     },
-    "System.Security.Principal.Windows/4.5.0": {
-      "sha512": "U77HfRXlZlOeIXd//Yoj6Jnk8AXlbeisf1oq1os+hxOGVnuG+lGSfGqTwTZBoORFF6j/0q7HXIl8cqwQ9aUGqQ==",
+    "System.Security.Principal.Windows/5.0.0": {
+      "sha512": "t0MGLukB5WAVU9bO3MGzvlGnyJPgUlcwerXn1kzBRjwLKixT96XV0Uza41W49gVd8zEMFu9vQEFlv0IOrytICA==",
       "type": "package",
-      "path": "system.security.principal.windows/4.5.0",
+      "path": "system.security.principal.windows/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net46/System.Security.Principal.Windows.dll",
         "lib/net461/System.Security.Principal.Windows.dll",
+        "lib/net461/System.Security.Principal.Windows.xml",
         "lib/netstandard1.3/System.Security.Principal.Windows.dll",
         "lib/netstandard2.0/System.Security.Principal.Windows.dll",
+        "lib/netstandard2.0/System.Security.Principal.Windows.xml",
         "lib/uap10.0.16299/_._",
         "ref/net46/System.Security.Principal.Windows.dll",
         "ref/net461/System.Security.Principal.Windows.dll",
         "ref/net461/System.Security.Principal.Windows.xml",
+        "ref/netcoreapp3.0/System.Security.Principal.Windows.dll",
+        "ref/netcoreapp3.0/System.Security.Principal.Windows.xml",
         "ref/netstandard1.3/System.Security.Principal.Windows.dll",
         "ref/netstandard1.3/System.Security.Principal.Windows.xml",
         "ref/netstandard1.3/de/System.Security.Principal.Windows.xml",
@@ -4999,12 +5355,19 @@
         "ref/netstandard2.0/System.Security.Principal.Windows.xml",
         "ref/uap10.0.16299/_._",
         "runtimes/unix/lib/netcoreapp2.0/System.Security.Principal.Windows.dll",
+        "runtimes/unix/lib/netcoreapp2.0/System.Security.Principal.Windows.xml",
+        "runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.dll",
+        "runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.xml",
         "runtimes/win/lib/net46/System.Security.Principal.Windows.dll",
         "runtimes/win/lib/net461/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/net461/System.Security.Principal.Windows.xml",
         "runtimes/win/lib/netcoreapp2.0/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/netcoreapp2.0/System.Security.Principal.Windows.xml",
+        "runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.xml",
         "runtimes/win/lib/netstandard1.3/System.Security.Principal.Windows.dll",
         "runtimes/win/lib/uap10.0.16299/_._",
-        "system.security.principal.windows.4.5.0.nupkg.sha512",
+        "system.security.principal.windows.5.0.0.nupkg.sha512",
         "system.security.principal.windows.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -5740,24 +6103,33 @@
       "Microsoft.EntityFrameworkCore.Relational >= 3.1.26",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.26",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.26",
+      "MongoDB.Driver >= 2.17.0",
       "com.tweetapp.domain >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\935049\\.nuget\\packages\\": {}
+    "C:\\Users\\cogdotnet942\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.infrastructure\\com.tweetapp.infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.infrastructure\\com.tweetapp.infrastructure.csproj",
       "projectName": "com.tweetapp.infrastructure",
-      "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.infrastructure\\com.tweetapp.infrastructure.csproj",
-      "packagesPath": "C:\\Users\\935049\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.infrastructure\\obj\\",
+      "projectPath": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.infrastructure\\com.tweetapp.infrastructure.csproj",
+      "packagesPath": "C:\\Users\\cogdotnet942\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.infrastructure\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\935049\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\cogdotnet942\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -5770,8 +6142,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj": {
-              "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj"
+            "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj": {
+              "projectPath": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj"
             }
           }
         }
@@ -5809,6 +6181,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[3.1.26, )"
+          },
+          "MongoDB.Driver": {
+            "target": "Package",
+            "version": "[2.17.0, )"
           }
         },
         "imports": [
@@ -5826,7 +6202,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

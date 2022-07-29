@@ -31,10 +31,7 @@ namespace com.tweetapp.infrastructure.DataContext
             modelBuilder.ApplyConfiguration(new UserEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new TweetEntityTypeConfiguration());
 
-            modelBuilder.Entity<User>()
-                        .HasMany(s => s.Tweets)
-                        .WithOne(s => s.User)
-                        .HasForeignKey(s => s.UserId);
+            
 
 
         }

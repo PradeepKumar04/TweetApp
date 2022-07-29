@@ -1,6 +1,10 @@
 ﻿using com.tweetapp.domain;
+using com.tweetapp.infrastructure.DataContext;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,23 +22,30 @@ namespace com.tweetapp.api.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IDbClient _client;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IDbClient client)
         {
             _logger = logger;
+            _client = client;
         }
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+            var data =_client.GetUserCollection();
+            return null;
         }
+
+
+    }
+
+    public class Example
+    {
+        [BsonId]
+        [BsonElement("_id")]
+        public Object Id { get; set; }
+        [BsonElement("name")]
+        public string Name { get; set; }
     }
 }

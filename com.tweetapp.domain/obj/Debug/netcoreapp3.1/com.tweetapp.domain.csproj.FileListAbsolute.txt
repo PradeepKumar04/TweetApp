@@ -20,3 +20,16 @@ C:\Users\935049\source\repos\com.tweetapp\TweetApp\com.tweetapp.domain\obj\Debug
 C:\Users\935049\source\repos\com.tweetapp\TweetApp\com.tweetapp.domain\obj\Debug\netcoreapp3.1\com.tweetapp.domain.pdb
 C:\Users\935049\source\repos\com.tweetapp\TweetApp\com.tweetapp.domain\obj\Debug\netcoreapp3.1\com.tweetapp.domain.genruntimeconfig.cache
 C:\Users\935049\source\repos\com.tweetapp\TweetApp\com.tweetapp.domain\obj\Debug\netcoreapp3.1\com.tweetapp.domain.csproj.AssemblyReference.cache
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.domain\bin\Debug\netcoreapp3.1\com.tweetapp.domain.deps.json
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.domain\bin\Debug\netcoreapp3.1\com.tweetapp.domain.runtimeconfig.json
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.domain\bin\Debug\netcoreapp3.1\com.tweetapp.domain.runtimeconfig.dev.json
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.domain\bin\Debug\netcoreapp3.1\com.tweetapp.domain.dll
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.domain\bin\Debug\netcoreapp3.1\com.tweetapp.domain.pdb
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.domain\obj\Debug\netcoreapp3.1\com.tweetapp.domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.domain\obj\Debug\netcoreapp3.1\com.tweetapp.domain.AssemblyInfoInputs.cache
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.domain\obj\Debug\netcoreapp3.1\com.tweetapp.domain.AssemblyInfo.cs
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.domain\obj\Debug\netcoreapp3.1\com.tweetapp.domain.csproj.CoreCompileInputs.cache
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.domain\obj\Debug\netcoreapp3.1\com.tweetapp.domain.dll
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.domain\obj\Debug\netcoreapp3.1\com.tweetapp.domain.pdb
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.domain\obj\Debug\netcoreapp3.1\com.tweetapp.domain.genruntimeconfig.cache
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.domain\obj\Debug\netcoreapp3.1\com.tweetapp.domain.csproj.AssemblyReference.cache

@@ -24,7 +24,7 @@ namespace com.tweetapp.infrastructure.EntityConfigrations
               .HasMaxLength(144)
               .IsRequired(true);
 
-            builder.Property(e => e.CreatedDate)
+            builder.Property(e => e.UploadDate)
               .HasColumnName("created_date")
               .HasColumnType("datetime")
               .IsRequired(true);

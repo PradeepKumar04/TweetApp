@@ -3,8 +3,10 @@ using com.tweetapp.domain.DAOEntities;
 using com.tweetapp.domain.Models;
 using com.tweetapp.infrastructure.DataContext;
 using Microsoft.EntityFrameworkCore;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,22 +20,35 @@ namespace com.tweetapp.infrastructure.Repositories
         Task<bool> ResetPassword(User user);
         Task<bool> ForgotPassword(User user);
         Task<User> GetUserByEmail(string email);
+        Task<User> GetUserByUserName(string username);
         Task<IEnumerable<User>> GetAllUsers();
+        Task<User> GetUserById(string id);
+        Task<bool> CheckEmailAndUserNameExists(string userName,string email);
+        Task<IEnumerable<User>> GetSearchedUser(string userName);
     }
     public class UserRepository : IUserRepository
     {
-        private readonly TwitterDbContext _context;
-        public UserRepository(TwitterDbContext context)
+ 
+        private readonly IDbClient _dbClient;
+        public UserRepository(IDbClient dbClient)
         {
-            _context = context ;
+            
+            _dbClient = dbClient;
         }
-        public IUnitOfWork UnitOfWork => _context;
 
         public async Task<bool> ResetPassword(User user)
         {
-           _context.Users.Update(user);
-            var changedRecordCount = await _context.SaveChangesAsync();
-            return changedRecordCount > 0;
+            try
+            {
+                var filter = Builders<User>.Filter.Eq(s => s.Email, user.Email);
+                await _dbClient.GetUserCollection().ReplaceOneAsync(filter, user);
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public Task<User> LoginUser(UserLoginDAO user)
@@ -45,9 +60,16 @@ namespace com.tweetapp.infrastructure.Repositories
         {
             user.IsActive = false;
             user.LastSeen = DateTime.Now;
-            _context.Users.Update(user);
-           var changes= await _context.SaveChangesAsync();
-            return changes > 0;
+            try
+            {
+                var filter = Builders<User>.Filter.Eq(s => s.Email, user.Email);
+                await _dbClient.GetUserCollection().ReplaceOneAsync(filter, user);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
 
@@ -55,37 +77,64 @@ namespace com.tweetapp.infrastructure.Repositories
         {
             try
             {
-              await _context.Users.AddAsync(user);
-              var changedRecoundCount = await _context.SaveChangesAsync();
-                if (changedRecoundCount > 0)
-                {
-                    return true;
-                }
-                return false;
-
+                await _dbClient.GetUserCollection().InsertOneAsync(user);
+                return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw new  Exception("Db connection failed");
+                throw new Exception("Db connection failed");
             }
         }
 
         public async Task<User> GetUserByEmail(string email)
         {
-            return await _context.Users.FirstOrDefaultAsync(s => s.Email == email);
+            var filter = Builders<User>.Filter.Eq(s => s.Email, email);
+            return await _dbClient.GetUserCollection().Find(filter).FirstOrDefaultAsync();
         }
 
         public async Task<bool> ForgotPassword(User user)
         {
-             _context.Users.Update(user);
-            var changedRecordCount = await _context.SaveChangesAsync();
-            return changedRecordCount > 0;
+            try
+            {
+                var filter = Builders<User>.Filter.Eq(s => s.Email,user.Email);
+                 await _dbClient.GetUserCollection().ReplaceOneAsync(filter, user);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public async Task<IEnumerable<User>> GetAllUsers()
         {
-          return await  _context.Users.ToListAsync();
+            return await _dbClient.GetUserCollection().Find(_ => true).ToListAsync();
+        }
+
+        public async Task<User> GetUserById(string id)
+        {
+            var filter = Builders<User>.Filter.Eq(s => s.Id, id);
+            return await _dbClient.GetUserCollection().Find(filter).FirstOrDefaultAsync();
+        }
+
+        public async Task<User> GetUserByUserName(string username)
+        {
+            var filter = Builders<User>.Filter.Eq(s => s.UserName, username);
+            return await _dbClient.GetUserCollection().Find(filter).FirstOrDefaultAsync();
+        }
+
+        public async Task<bool> CheckEmailAndUserNameExists(string userName, string email)
+        {
+            var filter = Builders<User>.Filter.Where(s=>s.Email==email) | Builders<User>.Filter.Where(s => s.UserName == userName);
+            return await _dbClient.GetUserCollection().Find(filter).CountDocumentsAsync()==0;
+        }
+
+        public async Task<IEnumerable<User>> GetSearchedUser(string userName)
+        {
+         
+            var searchedUsers = await _dbClient.GetUserCollection().Find(_=>true).ToListAsync();
+            return searchedUsers.Where(s => s.UserName.ToLower().Contains(userName.ToLower())).ToList();
         }
     }
 }

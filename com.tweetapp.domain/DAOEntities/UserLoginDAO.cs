@@ -7,6 +7,7 @@ namespace com.tweetapp.domain.DAOEntities
     public class UserLoginDAO
     {
         public string Email { get; set; }
+        public string UserName { get; set; }
         public string Password { get; set; }
     }
 }

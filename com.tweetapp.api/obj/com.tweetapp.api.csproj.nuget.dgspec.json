@@ -1,21 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.api\\com.tweetapp.api.csproj": {}
+    "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.api\\com.tweetapp.api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.api\\com.tweetapp.api.csproj": {
+    "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.api\\com.tweetapp.api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.api\\com.tweetapp.api.csproj",
+        "projectUniqueName": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.api\\com.tweetapp.api.csproj",
         "projectName": "com.tweetapp.api",
-        "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.api\\com.tweetapp.api.csproj",
-        "packagesPath": "C:\\Users\\935049\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.api\\obj\\",
+        "projectPath": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.api\\com.tweetapp.api.csproj",
+        "packagesPath": "C:\\Users\\cogdotnet942\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.api\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\935049\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\cogdotnet942\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -28,14 +34,14 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.application\\com.tweetapp.application.csproj": {
-                "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.application\\com.tweetapp.application.csproj"
+              "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.application\\com.tweetapp.application.csproj": {
+                "projectPath": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.application\\com.tweetapp.application.csproj"
               },
-              "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj": {
-                "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj"
+              "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj": {
+                "projectPath": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj"
               },
-              "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.infrastructure\\com.tweetapp.infrastructure.csproj": {
-                "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.infrastructure\\com.tweetapp.infrastructure.csproj"
+              "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.infrastructure\\com.tweetapp.infrastructure.csproj": {
+                "projectPath": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.infrastructure\\com.tweetapp.infrastructure.csproj"
               }
             }
           }
@@ -85,6 +91,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.26, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.17.0, )"
             }
           },
           "imports": [
@@ -97,12 +107,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.25, 3.1.25]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -111,22 +115,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.application\\com.tweetapp.application.csproj": {
+    "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.application\\com.tweetapp.application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.application\\com.tweetapp.application.csproj",
+        "projectUniqueName": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.application\\com.tweetapp.application.csproj",
         "projectName": "com.tweetapp.application",
-        "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.application\\com.tweetapp.application.csproj",
-        "packagesPath": "C:\\Users\\935049\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.application\\obj\\",
+        "projectPath": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.application\\com.tweetapp.application.csproj",
+        "packagesPath": "C:\\Users\\cogdotnet942\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\935049\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\cogdotnet942\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -139,8 +149,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.infrastructure\\com.tweetapp.infrastructure.csproj": {
-                "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.infrastructure\\com.tweetapp.infrastructure.csproj"
+              "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.infrastructure\\com.tweetapp.infrastructure.csproj": {
+                "projectPath": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.infrastructure\\com.tweetapp.infrastructure.csproj"
               }
             }
           }
@@ -158,6 +168,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[11.0.0, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.17.0, )"
             }
           },
           "imports": [
@@ -175,22 +189,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj": {
+    "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj",
+        "projectUniqueName": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj",
         "projectName": "com.tweetapp.domain",
-        "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj",
-        "packagesPath": "C:\\Users\\935049\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.domain\\obj\\",
+        "projectPath": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj",
+        "packagesPath": "C:\\Users\\cogdotnet942\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\935049\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\cogdotnet942\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -234,6 +254,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.26, )"
+            },
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[2.17.0, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.17.0, )"
             }
           },
           "imports": [
@@ -251,22 +279,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.infrastructure\\com.tweetapp.infrastructure.csproj": {
+    "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.infrastructure\\com.tweetapp.infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.infrastructure\\com.tweetapp.infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.infrastructure\\com.tweetapp.infrastructure.csproj",
         "projectName": "com.tweetapp.infrastructure",
-        "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.infrastructure\\com.tweetapp.infrastructure.csproj",
-        "packagesPath": "C:\\Users\\935049\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.infrastructure\\com.tweetapp.infrastructure.csproj",
+        "packagesPath": "C:\\Users\\cogdotnet942\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\935049\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\cogdotnet942\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -279,8 +313,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj": {
-                "projectPath": "C:\\Users\\935049\\source\\repos\\com.tweetapp\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj"
+              "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj": {
+                "projectPath": "C:\\Users\\cogdotnet942\\Source\\Repos\\TweetApp\\com.tweetapp.domain\\com.tweetapp.domain.csproj"
               }
             }
           }
@@ -318,6 +352,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.26, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.17.0, )"
             }
           },
           "imports": [
@@ -335,7 +373,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
