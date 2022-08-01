@@ -33,7 +33,7 @@ namespace com.tweetapp.api.Controllers
             return await _userRegisteration.UserRegistartion(user);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("login")]
         public async Task<ApiResponse<string>> LoginUser([FromBody] UserLoginDAO user)
         {
