@@ -51,6 +51,13 @@ namespace com.tweetapp.api
             services.AddSingleton<ITweetAppDbSettings>(sp =>
             sp.GetRequiredService<IOptions<TweetAppDbSettings>>().Value);
 
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.WithOrigins("http://localhost:3000")
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
             // Adding Authentication  
             services.AddAuthentication(options =>
             {
@@ -85,7 +92,9 @@ namespace com.tweetapp.api
 
             app.UseHttpsRedirection();
 
-            app.UseRouting();
+            app.UseRouting();  // first
+                               // Use the CORS policy
+            app.UseCors("MyPolicy"); // second
             app.UseAuthentication();
             app.UseAuthorization();
 

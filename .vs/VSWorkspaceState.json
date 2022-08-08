@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\com.tweetapp.api"
+    "\\com.tweetapp.api",
+    "\\com.tweetapp.infrastructure",
+    "\\com.tweetapp.infrastructure\\Repositories"
   ],
-  "SelectedNode": "\\com.tweetapp.api\\appsettings.json",
+  "SelectedNode": "\\com.tweetapp.infrastructure\\Repositories\\TweetRepository.cs",
   "PreviewInSolutionExplorer": false
 }
