@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Microsoft.Net.Http.Headers;
 using System;
 using System.Collections.Generic;
@@ -20,10 +21,12 @@ namespace com.tweetapp.api.Controllers
     public class TweetController : ControllerBase
     {
         protected readonly ITweetQuery _tweetQuery;
+        protected readonly ILogger<TweetController> _logger;
 
-        public TweetController(ITweetQuery tweetQuery)
+        public TweetController(ITweetQuery tweetQuery,ILogger<TweetController> logger)
         {
-            _tweetQuery = tweetQuery;   
+            _tweetQuery = tweetQuery;
+            _logger = logger;
         }
 
         [HttpPost]

@@ -2,9 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\com.tweetapp.api",
+    "\\com.tweetapp.api\\Controllers",
     "\\com.tweetapp.infrastructure",
     "\\com.tweetapp.infrastructure\\Repositories"
   ],
-  "SelectedNode": "\\com.tweetapp.infrastructure\\Repositories\\TweetRepository.cs",
+  "SelectedNode": "\\com.tweetapp.api\\Controllers\\AuthenticationController.cs",
   "PreviewInSolutionExplorer": false
 }

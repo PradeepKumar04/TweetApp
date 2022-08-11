@@ -3,10 +3,12 @@ using com.tweetapp.application.Queries;
 using com.tweetapp.application.Response;
 using com.tweetapp.domain.DAOEntities;
 using com.tweetapp.domain.Models;
+using Confluent.Kafka;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Microsoft.Net.Http.Headers;
 using System;
 using System.Collections.Generic;
@@ -20,10 +22,12 @@ namespace com.tweetapp.api.Controllers
     public class AuthenticationController : ControllerBase
     {
         protected readonly IUserRegisterationQuery _userRegisteration;
+        protected readonly ILogger<AuthenticationController> _logger;
 
-        public AuthenticationController(IUserRegisterationQuery userRegisteration)
+        public AuthenticationController(IUserRegisterationQuery userRegisteration, ILogger<AuthenticationController> logger)
         {
             _userRegisteration = userRegisteration;
+            _logger = logger;
         }
 
         [HttpPost]
@@ -37,7 +41,27 @@ namespace com.tweetapp.api.Controllers
         [Route("login")]
         public async Task<ApiResponse<string>> LoginUser([FromBody] UserLoginDAO user)
         {
-            return await _userRegisteration.UserLogin(user);
+            
+                _logger.LogInformation($"{user.UserName} user login");
+                var result = await _userRegisteration.UserLogin(user);
+                return result;
+                //using (var producer =
+                // new ProducerBuilder<Null, string>(new ProducerConfig { BootstrapServers = "localhost:9092" }).Build())
+                //{
+                //    try
+                //    {
+                //        Console.WriteLine(producer.ProduceAsync("tweetapp_topic", new Message<Null, string> { Value = user.UserName + " logged in!" })
+                //            .GetAwaiter()
+                //            .GetResult());
+
+            
+                //    }
+                //    catch (Exception e)
+                //    {
+                //        Console.WriteLine($"Oops, something went wrong: {e}");
+                //    }
+                //return result;
+                //}
         }
 
         [HttpPut]
