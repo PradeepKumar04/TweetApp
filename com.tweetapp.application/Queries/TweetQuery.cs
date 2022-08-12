@@ -20,6 +20,7 @@ namespace com.tweetapp.application.Queries
         public Task<ApiResponse<string>> ReplyTweet(string userName , string tweetId, string message);
         public Task<ApiResponse<bool>> DeleteTweet(string id);
         public Task<ApiResponse<bool>> UpdateTweet(string id, string username, TweetDAO tweet);
+        public Task<ApiResponse<bool>> EditTweet(EditTweetDAO editTweet);
     }
     public class TweetQuery : ITweetQuery
     {
@@ -348,6 +349,31 @@ namespace com.tweetapp.application.Queries
                 Data = false
             };
 
+        }
+
+        public async Task<ApiResponse<bool>> EditTweet(EditTweetDAO editTweet)
+        {
+            if (editTweet.Id == "" || editTweet.Id == null)
+            {
+                return new ApiResponse<bool>()
+                {
+                    Message = "Tweet not found",
+                    StatusCode = 500,
+                    Success = false,
+                    Data = false
+                };
+            }
+            var tweet = await _tweetRepository.GetTweetByID(editTweet.Id);
+            tweet.ImagePath = editTweet.ImagePath;
+            tweet.Message = editTweet.Message;
+            var result = await _tweetRepository.ReplyOrLikeTweet(tweet);
+            return new ApiResponse<bool>()
+            {
+                Message = result ? "Tweet Updated Successfully." : "Something went wrong!",
+                StatusCode = result ? 200 : 500,
+                Success = result,
+                Data = false
+            };
         }
     }
 }

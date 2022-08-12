@@ -218,4 +218,9 @@ C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\bin\Debug\netcoreap
 C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\vcruntime140.dll
 C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\zlib1.dll
 C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\zstd.dll
-C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\obj\Debug\netcoreapp3.1\com.tweetapp.api.csproj.CopyComplete
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\obj\Debug\netcoreapp3.1\com.tweetapp.api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\bin\Debug\netcoreapp3.1\com.tweetapp.api.xml

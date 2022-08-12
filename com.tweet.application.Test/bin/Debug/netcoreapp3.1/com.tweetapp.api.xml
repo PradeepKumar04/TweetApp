@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>com.tweetapp.api</name>
+    </assembly>
+    <members>
+        <member name="M:com.tweetapp.api.Controllers.AuthenticationController.RegisterUser(com.tweetapp.domain.DAOEntities.UserRegisterDAO)">
+            <summary>
+            Register as new user
+            </summary>
+            <param name="user">Request's payload</param>
+            <returns>Register as new user</returns>
+        </member>
+        <member name="M:com.tweetapp.api.Controllers.AuthenticationController.LoginUser(com.tweetapp.domain.DAOEntities.UserLoginDAO)">
+            <summary>
+            Logging in User
+            </summary>
+            <param name="user">Request's payload</param>
+            <returns>Gets logging in</returns>
+        </member>
+        <member name="M:com.tweetapp.api.Controllers.AuthenticationController.ForgotPassword(com.tweetapp.domain.DAOEntities.ForgotPasswordDAO)">
+            <summary>
+            Updates the Password
+            </summary>
+            <param name="forgotPassword">Request's payload</param>
+            <returns>Updates the Password</returns>
+        </member>
+        <member name="M:com.tweetapp.api.Controllers.AuthenticationController.ResetPassword(com.tweetapp.domain.DAOEntities.ResetPasswordDAO)">
+            <summary>
+            Setting a New Password
+            </summary>
+            <param name="password">Request's payload</param>
+            <returns>Setting a New password</returns>
+        </member>
+        <member name="M:com.tweetapp.api.Controllers.AuthenticationController.UserLogout">
+            <summary>
+            Logging out
+            </summary>
+            <returns>Logging Out</returns>
+        </member>
+        <member name="M:com.tweetapp.api.Controllers.AuthenticationController.GetAllUsers">
+            <summary>
+            Returns a list of AllUsers
+            </summary>
+            <returns>A list of AllUsers</returns>
+        </member>
+        <member name="M:com.tweetapp.api.Controllers.AuthenticationController.GetSearchedUserName(System.String)">
+            <summary>
+            Returns Users by Searching with username
+            </summary>
+            <param name="userName"></param>
+            <returns>List of Users by username</returns>
+        </member>
+        <member name="M:com.tweetapp.api.Controllers.TweetController.PostTweet(com.tweetapp.domain.DAOEntities.TweetDAO)">
+            <summary>
+            Creates a new tweet
+            </summary>
+            <param name="tweet">Request's payload</param>
+            <returns>Adds a new tweet</returns>
+            <response code="201">Tweet created successfully</response>
+        </member>
+        <member name="M:com.tweetapp.api.Controllers.TweetController.GetTweetsByUserName(System.String)">
+            <summary>
+            Returns tweets by username
+            </summary>
+            <param name="username">Request's payload</param>
+            <returns>tweets by username</returns>
+            <response code="200">Returns tweets by username</response>
+        </member>
+        <member name="M:com.tweetapp.api.Controllers.TweetController.GetAllTweets">
+            <summary>
+            Returns a list of all tweets
+            </summary>
+            <returns> A list of all tweets</returns>
+            <remarks>
+            Sample request
+            GET/api/Tweet/AllTweets
+            </remarks>
+            <response code="200">Returns a list of all tweets </response>
+        </member>
+        <member name="M:com.tweetapp.api.Controllers.TweetController.LikeTweet(System.String,System.String)">
+            <summary>
+            Updates a tweet by getting liked through username and Id
+            </summary>
+            <param name="username">Request's payload</param>
+            <param name="id">Request's payload</param>
+            <returns>likes a tweet by username and Id</returns>
+            <response code="200">Updated tweet by a like </response>
+        </member>
+        <member name="M:com.tweetapp.api.Controllers.TweetController.ReplyTweet(System.String,System.String,com.tweetapp.domain.DAOEntities.TweetReplyDAO)">
+            <summary>
+            Replying a tweet by username and Id
+            </summary>
+            <param name="username">Request's payload</param>
+            <param name="id">Request's payload</param>
+            <param name="reply"></param>
+            <returns>Replying a tweet</returns>
+            <response code="201">Tweet replied successfully</response>
+        </member>
+        <member name="M:com.tweetapp.api.Controllers.TweetController.UpdateTweet(System.String,System.String,com.tweetapp.domain.DAOEntities.TweetDAO)">
+            <summary>
+            Updates a tweet by username and Id
+            </summary>
+            <param name="username">Request's payload</param>
+            <param name="id">Request's payload</param>
+            <param name="tweet"></param>
+            <returns>Updates a tweet</returns>
+            <response code="200">Tweet updated successfully</response>
+        </member>
+        <member name="M:com.tweetapp.api.Controllers.TweetController.DeleteTweet(System.String,System.String)">
+            <summary>
+            Deletes a tweet by username and Id
+            </summary>
+            <param name="username">Request's payload</param>
+            <param name="id">Request's payload</param>
+            <returns>Deletes a tweet</returns>
+            <response code="204">Tweet deleted successfully</response>
+        </member>
+        <member name="M:com.tweetapp.api.Controllers.TweetController.EditTweet(com.tweetapp.domain.DAOEntities.EditTweetDAO)">
+            <summary>
+            Updates a tweet by username and Id
+            </summary>
+            <param name="username">Request's payload</param>
+            <param name="id">Request's payload</param>
+            <param name="tweet"></param>
+            <returns>Updates a tweet</returns>
+            <response code="200">Tweet updated successfully</response>
+        </member>
+    </members>
+</doc>

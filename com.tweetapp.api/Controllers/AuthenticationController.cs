@@ -30,13 +30,24 @@ namespace com.tweetapp.api.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Register as new user
+        /// </summary>
+        /// <param name="user">Request's payload</param>
+        /// <returns>Register as new user</returns>
         [HttpPost]
         [Route("register")]
         public async Task<ApiResponse<string>> RegisterUser([FromBody] UserRegisterDAO user)
         {
+            _logger.LogInformation($"{user.UserName} User Register");
             return await _userRegisteration.UserRegistartion(user);
         }
 
+        /// <summary>
+        /// Logging in User
+        /// </summary>
+        /// <param name="user">Request's payload</param>
+        /// <returns>Gets logging in</returns>
         [HttpPost]
         [Route("login")]
         public async Task<ApiResponse<string>> LoginUser([FromBody] UserLoginDAO user)
@@ -64,14 +75,25 @@ namespace com.tweetapp.api.Controllers
                 //}
         }
 
+        /// <summary>
+        /// Updates the Password
+        /// </summary>
+        /// <param name="forgotPassword">Request's payload</param>
+        /// <returns>Updates the Password</returns>
         [HttpPut]
         [Route("ForgotPassword")]
         public async Task<ApiResponse<string>> ForgotPassword([FromBody] ForgotPasswordDAO forgotPassword)
         {
+            _logger.LogInformation($"{forgotPassword.Email} forgot password action");
             return await _userRegisteration.ForgotPassword(forgotPassword);
             
         }
 
+        /// <summary>
+        /// Setting a New Password
+        /// </summary>
+        /// <param name="password">Request's payload</param>
+        /// <returns>Setting a New password</returns>
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPut]
         [Route("ResetPassword")]
@@ -79,9 +101,14 @@ namespace com.tweetapp.api.Controllers
         {
             //Request.Headers
             var email = GetEmailFromToken.GetEmail(Request.Headers[HeaderNames.Authorization].ToString().Split(" ")[1]);
+            _logger.LogInformation($"{email} reset password action");
             return await _userRegisteration.ResetPassword(email,password.Password);
         }
 
+        /// <summary>
+        /// Logging out
+        /// </summary>
+        /// <returns>Logging Out</returns>
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet]
         [Route("Logout")]
@@ -89,23 +116,36 @@ namespace com.tweetapp.api.Controllers
         {
             //Request.Headers
             var email = GetEmailFromToken.GetEmail(Request.Headers[HeaderNames.Authorization].ToString().Split(" ")[1]);
+            _logger.LogInformation($"{email} user logged out action");
             Response.Headers[HeaderNames.Authorization] = "";
             return await _userRegisteration.Logout(email);
         }
 
+        /// <summary>
+        /// Returns a list of AllUsers
+        /// </summary>
+        /// <returns>A list of AllUsers</returns>
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet]
         [Route("Users")]
         public async Task<ApiResponse<IEnumerable<UserDAO>>> GetAllUsers()
         {
+            _logger.LogInformation($"Get All Users");
             return await _userRegisteration.GetAllUsers();   
         }
 
+
+        /// <summary>
+        /// Returns Users by Searching with username
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns>List of Users by username</returns>
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet]
         [Route("search/{username}")]
         public async Task<ApiResponse<IEnumerable<UserDAO>>> GetSearchedUserName([FromRoute]string userName)
         {
+            _logger.LogInformation($"Search user by user name");
             return await _userRegisteration.GetSearchedUser(userName);
         }
 
