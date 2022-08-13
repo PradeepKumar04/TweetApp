@@ -55,24 +55,24 @@ namespace com.tweetapp.api.Controllers
             
                 _logger.LogInformation($"{user.UserName} user login");
                 var result = await _userRegisteration.UserLogin(user);
-                return result;
-                //using (var producer =
-                // new ProducerBuilder<Null, string>(new ProducerConfig { BootstrapServers = "localhost:9092" }).Build())
-                //{
-                //    try
-                //    {
-                //        Console.WriteLine(producer.ProduceAsync("tweetapp_topic", new Message<Null, string> { Value = user.UserName + " logged in!" })
-                //            .GetAwaiter()
-                //            .GetResult());
+                
+                using (var producer =
+                 new ProducerBuilder<Null, string>(new ProducerConfig { BootstrapServers = "localhost:9092" }).Build())
+                {
+                    try
+                    {
+                        Console.WriteLine(producer.ProduceAsync("tweet_app", new Message<Null, string> { Value = user.UserName + " logged in!" })
+                            .GetAwaiter()
+                            .GetResult());
 
-            
-                //    }
-                //    catch (Exception e)
-                //    {
-                //        Console.WriteLine($"Oops, something went wrong: {e}");
-                //    }
-                //return result;
-                //}
+
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine($"Oops, something went wrong: {e}");
+                    }
+                    return result;
+                };
         }
 
         /// <summary>

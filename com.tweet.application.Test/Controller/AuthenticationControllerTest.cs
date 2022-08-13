@@ -107,7 +107,6 @@ namespace com.tweet.application.Test.Controller
 
             Assert.NotNull(response);
             Assert.AreEqual(200, response.StatusCode);
-        }
 
     }
 }

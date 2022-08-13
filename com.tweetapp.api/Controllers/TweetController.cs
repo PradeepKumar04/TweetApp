@@ -2,6 +2,7 @@
 using com.tweetapp.application.Queries;
 using com.tweetapp.application.Response;
 using com.tweetapp.domain.DAOEntities;
+using Confluent.Kafka;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -43,6 +44,23 @@ namespace com.tweetapp.api.Controllers
             tweet.UploadDate = DateTime.Now;
             var userId = GetIdFromToken.GetId(Request.Headers[HeaderNames.Authorization].ToString().Split(" ")[1]);
             _logger.LogInformation($"{userId} posted tweet");
+            using (var producer =
+                 new ProducerBuilder<Null, string>(new ProducerConfig { BootstrapServers = "localhost:9092" }).Build())
+            {
+                try
+                {
+                    Console.WriteLine(producer.ProduceAsync("tweet_app", new Message<Null, string> { Value = tweet.User.FirstName+" posted a tweet." })
+                        .GetAwaiter()
+                        .GetResult());
+
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Oops, something went wrong: {e}");
+                }
+                
+            };
             return await _tweetQuery.PostTweet(tweet,userId);
         }
 
@@ -57,6 +75,7 @@ namespace com.tweetapp.api.Controllers
         public async Task<ApiResponse<IEnumerable<TweetDAO>>> GetTweetsByUserName([FromRoute] string username)
         {
             _logger.LogInformation($"{username} get tweets by user name");
+
             return await _tweetQuery.GetAllTweetsByUserName(username);
         }
 
@@ -143,6 +162,22 @@ namespace com.tweetapp.api.Controllers
         {
             var userName = GetUserNameFromToken.GetNameFromToken(Request.Headers[HeaderNames.Authorization].ToString().Split(" ")[1]);
             _logger.LogInformation($"{userName} Deleted the tweet");
+            using (var producer =
+                 new ProducerBuilder<Null, string>(new ProducerConfig { BootstrapServers = "localhost:9092" }).Build())
+            {
+                try
+                {
+                    Console.WriteLine(producer.ProduceAsync("tweet_app", new Message<Null, string> { Value = userName + " Deleted a Tweet with id "+id  })
+                        .GetAwaiter()
+                        .GetResult());
+
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Oops, something went wrong: {e}");
+                }
+            };
             return await _tweetQuery.DeleteTweet(id);
         }
 
