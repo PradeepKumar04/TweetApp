@@ -224,3 +224,10 @@ C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\bin\Debug\netcoreap
 C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\obj\Debug\netcoreapp3.1\com.tweetapp.api.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\bin\Debug\netcoreapp3.1\com.tweetapp.api.xml
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\bin\Debug\netcoreapp3.1\Azure.Core.dll
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\bin\Debug\netcoreapp3.1\Azure.Core.Amqp.dll
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\bin\Debug\netcoreapp3.1\Azure.Messaging.ServiceBus.dll
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\bin\Debug\netcoreapp3.1\Microsoft.Azure.Amqp.dll
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\bin\Debug\netcoreapp3.1\System.Memory.Data.dll
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
+C:\Users\cogdotnet942\Source\Repos\TweetApp\com.tweetapp.api\bin\Debug\netcoreapp3.1\System.Text.Json.dll

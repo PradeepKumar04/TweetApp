@@ -1,4 +1,5 @@
-﻿using com.tweetapp.api.Helpers;
+﻿using Azure.Messaging.ServiceBus;
+using com.tweetapp.api.Helpers;
 using com.tweetapp.application.Queries;
 using com.tweetapp.application.Response;
 using com.tweetapp.domain.DAOEntities;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Net.Http.Headers;
 using System;
@@ -23,11 +25,13 @@ namespace com.tweetapp.api.Controllers
     {
         protected readonly IUserRegisterationQuery _userRegisteration;
         protected readonly ILogger<AuthenticationController> _logger;
+        protected readonly IConfiguration _config;
 
-        public AuthenticationController(IUserRegisterationQuery userRegisteration, ILogger<AuthenticationController> logger)
+        public AuthenticationController(IUserRegisterationQuery userRegisteration, ILogger<AuthenticationController> logger, IConfiguration config)
         {
             _userRegisteration = userRegisteration;
             _logger = logger;
+            _config = config;
         }
 
         /// <summary>
@@ -40,6 +44,12 @@ namespace com.tweetapp.api.Controllers
         public async Task<ApiResponse<string>> RegisterUser([FromBody] UserRegisterDAO user)
         {
             _logger.LogInformation($"{user.UserName} User Register");
+            string message = user.UserName + " Registered successful" + " on " + DateTime.Now;
+            string connectionstr = _config.GetValue<string>("sbConnString");
+            var client = new ServiceBusClient(connectionstr);
+            var sender = client.CreateSender("tweet-app-messaging");
+            var sbmsg = new ServiceBusMessage(message);
+            await sender.SendMessageAsync(sbmsg);
             return await _userRegisteration.UserRegistartion(user);
         }
 

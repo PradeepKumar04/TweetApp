@@ -1,4 +1,5 @@
-﻿using com.tweetapp.api.Helpers;
+﻿using Azure.Messaging.ServiceBus;
+using com.tweetapp.api.Helpers;
 using com.tweetapp.application.Queries;
 using com.tweetapp.application.Response;
 using com.tweetapp.domain.DAOEntities;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Net.Http.Headers;
 using System;
@@ -22,12 +24,16 @@ namespace com.tweetapp.api.Controllers
     public class TweetController : ControllerBase
     {
         protected readonly ITweetQuery _tweetQuery;
+        protected readonly IConfiguration _config;
         protected readonly ILogger<TweetController> _logger;
+        private const string connectionString = "Endpoint=sb://tweetappeventhub2.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=3qVKYR0wDhpusLmfFvbyZOOTICQgIIcsW1k7Sm/fZO8=";
+        private const string eventName = "tweetappeventhub";
 
-        public TweetController(ITweetQuery tweetQuery,ILogger<TweetController> logger)
+        public TweetController(ITweetQuery tweetQuery,ILogger<TweetController> logger,IConfiguration config)
         {
             _tweetQuery = tweetQuery;
             _logger = logger;
+            _config = config;
         }
 
 
@@ -44,23 +50,24 @@ namespace com.tweetapp.api.Controllers
             tweet.UploadDate = DateTime.Now;
             var userId = GetIdFromToken.GetId(Request.Headers[HeaderNames.Authorization].ToString().Split(" ")[1]);
             _logger.LogInformation($"{userId} posted tweet");
-            using (var producer =
-                 new ProducerBuilder<Null, string>(new ProducerConfig { BootstrapServers = "localhost:9092" }).Build())
-            {
-                try
-                {
-                    Console.WriteLine(producer.ProduceAsync("tweet_app", new Message<Null, string> { Value = tweet.User.FirstName+" posted a tweet." })
-                        .GetAwaiter()
-                        .GetResult());
+
+            //using (var producer =
+            //     new ProducerBuilder<Null, string>(new ProducerConfig { BootstrapServers = "localhost:9092" }).Build())
+            //{
+            //    try
+            //    {
+            //        Console.WriteLine(producer.ProduceAsync("tweet_app", new Message<Null, string> { Value = "User Id "+userId+" posted a tweet." })
+            //            .GetAwaiter()
+            //            .GetResult());
 
 
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine($"Oops, something went wrong: {e}");
-                }
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        Console.WriteLine($"Oops, something went wrong: {e}");
+            //    }
                 
-            };
+            //};
             return await _tweetQuery.PostTweet(tweet,userId);
         }
 
@@ -162,22 +169,12 @@ namespace com.tweetapp.api.Controllers
         {
             var userName = GetUserNameFromToken.GetNameFromToken(Request.Headers[HeaderNames.Authorization].ToString().Split(" ")[1]);
             _logger.LogInformation($"{userName} Deleted the tweet");
-            using (var producer =
-                 new ProducerBuilder<Null, string>(new ProducerConfig { BootstrapServers = "localhost:9092" }).Build())
-            {
-                try
-                {
-                    Console.WriteLine(producer.ProduceAsync("tweet_app", new Message<Null, string> { Value = userName + " Deleted a Tweet with id "+id  })
-                        .GetAwaiter()
-                        .GetResult());
-
-
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine($"Oops, something went wrong: {e}");
-                }
-            };
+            string message = username + "deleted tweet " + " on " + DateTime.Now;
+            string connectionstr = _config.GetValue<string>("sbConnString");
+            var client = new ServiceBusClient(connectionstr);
+            var sender = client.CreateSender("tweet-app-messaging");
+            var sbmsg = new ServiceBusMessage(message);
+            await sender.SendMessageAsync(sbmsg);
             return await _tweetQuery.DeleteTweet(id);
         }
 

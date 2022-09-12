@@ -4,8 +4,9 @@
     "\\com.tweetapp.api",
     "\\com.tweetapp.api\\Controllers",
     "\\com.tweetapp.infrastructure",
+    "\\com.tweetapp.infrastructure\\DataContext",
     "\\com.tweetapp.infrastructure\\Repositories"
   ],
-  "SelectedNode": "\\com.tweetapp.api\\Controllers\\AuthenticationController.cs",
+  "SelectedNode": "\\com.tweetapp.infrastructure\\DataContext\\DbClient.cs",
   "PreviewInSolutionExplorer": false
 }
